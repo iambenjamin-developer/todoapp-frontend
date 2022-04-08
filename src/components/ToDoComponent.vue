@@ -45,7 +45,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="toDoItem in $store.state.toDoModule.responseApiBackend" :key="toDoItem.id">
+              <tr v-for="toDoItem in $store.state.toDoModule.toDoList" :key="toDoItem.id">
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
 
