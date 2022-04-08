@@ -28,3 +28,14 @@ export const createToDoItem = async ({ commit }, toDoItemName) => {
 
     commit('addToDoItem', dataToSave)
 }
+
+export const deleteToDoItem = async ({ commit }, todoItemId) => {
+
+    alert(`actions.js => deleteToDoItem => todoItemId: ${todoItemId}`)
+
+    const { data, status } = await toDoApi.delete(`/TodoItems/${todoItemId}`)
+
+    alert(status)
+
+    commit('deleteToDoItem', dataToSave)
+}

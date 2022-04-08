@@ -105,13 +105,14 @@ export default {
     addToDoItem(toDoItemName) {
 
       this.createToDoItem(toDoItemName)
-    
+
       // TodoItemService.addToDoItem(this.toDoItemName);
       // refreshTable();
     },
     deleteToDoItemById(todoItemId) {
 
-      alert(todoItemId)
+      // alert(todoItemId)
+      this.deleteToDoItem(todoItemId)
       // TodoItemService.deleteToDoItemById(todoItemId);
       // refreshTable();
     },
@@ -129,6 +130,7 @@ export default {
     },
     ...mapActions('toDoModule', ['getAllToDoItems']),
     ...mapActions('toDoModule', ['createToDoItem']),
+    ...mapActions('toDoModule', ['deleteToDoItem']),
 
   },
   created() {
