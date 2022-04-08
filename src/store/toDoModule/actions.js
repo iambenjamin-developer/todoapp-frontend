@@ -13,3 +13,18 @@ export const getAllToDoItems = async ({ commit }) => {
 
     commit('setToDoList', data)
 }
+
+
+export const createToDoItem = async ({ commit }, toDoItemName) => {
+
+    alert(`actions.js => createToDoItem => toDoItemName: ${toDoItemName}`)
+    const body = { name: toDoItemName }
+
+    alert(JSON.stringify(body))
+
+    const { data, status } = await toDoApi.post('/TodoItems', body)
+
+    alert(status)
+
+    commit('addToDoItem', dataToSave)
+}

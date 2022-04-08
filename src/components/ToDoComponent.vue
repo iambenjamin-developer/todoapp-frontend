@@ -104,7 +104,8 @@ export default {
   methods: {
     addToDoItem(toDoItemName) {
 
-      alert(toDoItemName)
+      this.createToDoItem(toDoItemName)
+    
       // TodoItemService.addToDoItem(this.toDoItemName);
       // refreshTable();
     },
@@ -126,7 +127,9 @@ export default {
       // TodoItemService.markToDoItemAsDone(toDoItemId);
       // refreshTable();
     },
-    ...mapActions('toDoModule', ['getAllToDoItems'])
+    ...mapActions('toDoModule', ['getAllToDoItems']),
+    ...mapActions('toDoModule', ['createToDoItem']),
+
   },
   created() {
 
