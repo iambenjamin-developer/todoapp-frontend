@@ -6,7 +6,24 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     myName: 'Benjamin',
-    myLastName: 'Correa'
+    myLastName: 'Correa',
+    responseApiBackend: [
+      {
+        id: 2001,
+        name: "tarea 2001",
+        isCompleted: true
+      },
+      {
+        id: 2007,
+        name: "tarea 2007",
+        isCompleted: false
+      },
+      {
+        id: 2030,
+        name: "tarea 2030",
+        isCompleted: true
+      },
+    ]
   },
   getters: {
     getFullName(state) {
