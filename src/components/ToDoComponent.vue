@@ -112,19 +112,21 @@ export default {
       this.deleteToDoItem(todoItemId)
       this.getAllToDoItems()
     },
-    markToDoItemAsIncompleted(toDoItemId) {
+    markToDoItemAsIncompleted(todoItemId) {
 
-      alert(toDoItemId)
-
+      this.markToDoItemAsIncompleted(todoItemId)
+      this.getAllToDoItems()
     },
-    markToDoItemAsDone(toDoItemId) {
+    markToDoItemAsDone(todoItemId) {
 
-      alert(toDoItemId)
-
+      this.markToDoItemAsDone(todoItemId)
+      this.getAllToDoItems()
     },
     ...mapActions('toDoModule', ['getAllToDoItems']),
     ...mapActions('toDoModule', ['createToDoItem']),
     ...mapActions('toDoModule', ['deleteToDoItem']),
+    ...mapActions('toDoModule', ['markToDoItemAsIncompleted']),
+    ...mapActions('toDoModule', ['markToDoItemAsDone']),
 
   },
   created() {
