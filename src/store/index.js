@@ -5,8 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    myName: 'Benjamin',
+    myLastName: 'Correa'
   },
   getters: {
+    getFullName(state) {
+      return `${state.myLastName}, ${state.myName}`
+    }
   },
   mutations: {
   },
