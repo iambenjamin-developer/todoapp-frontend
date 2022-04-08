@@ -24,18 +24,19 @@ export const createToDoItem = async ({ commit }, toDoItemName) => {
     const { data, status } = await toDoApi.post('/TodoItems', body)
 
     if (status === 201) {
-        
+
         commit('addToDoItem', data)
     }
 }
 
 export const deleteToDoItem = async ({ commit }, todoItemId) => {
 
-    alert(`actions.js => deleteToDoItem => todoItemId: ${todoItemId}`)
+    console.log(`actions.js => deleteToDoItem => todoItemId: ${todoItemId}`)
 
     const { data, status } = await toDoApi.delete(`/TodoItems/${todoItemId}`)
 
-    alert(status)
+    if (status === 204) {
 
-    commit('deleteToDoItem', dataToSave)
+        commit('deleteToDoItem', todoItemId)
+    }
 }

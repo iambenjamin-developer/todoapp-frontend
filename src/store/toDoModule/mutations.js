@@ -13,7 +13,7 @@ export const addToDoItem = (state, toDoItem) => {
     state.toDoList = [...state.toDoList, toDoItem]
 }
 
-export const deleteToDoItem = (state, data) => {
-    // state -> entries  -> la nueva entrada debe de ser la primera
-    state.entries = [data, ...state.entries]
+export const deleteToDoItem = (state, todoItemId) => {
+    
+    state.toDoList = state.toDoList.filter(x => x.id !== todoItemId)
 }
