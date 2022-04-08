@@ -106,29 +106,21 @@ export default {
 
       this.createToDoItem(toDoItemName)
       this.getAllToDoItems()
-
-      // TodoItemService.addToDoItem(this.toDoItemName);
-      // refreshTable();
     },
     deleteToDoItemById(todoItemId) {
 
-      // alert(todoItemId)
       this.deleteToDoItem(todoItemId)
       this.getAllToDoItems()
-      // TodoItemService.deleteToDoItemById(todoItemId);
-      // refreshTable();
     },
     markToDoItemAsIncompleted(toDoItemId) {
 
       alert(toDoItemId)
-      // TodoItemService.markToDoItemAsIncompleted(toDoItemId);
-      // refreshTable();
+
     },
     markToDoItemAsDone(toDoItemId) {
 
       alert(toDoItemId)
-      // TodoItemService.markToDoItemAsDone(toDoItemId);
-      // refreshTable();
+
     },
     ...mapActions('toDoModule', ['getAllToDoItems']),
     ...mapActions('toDoModule', ['createToDoItem']),

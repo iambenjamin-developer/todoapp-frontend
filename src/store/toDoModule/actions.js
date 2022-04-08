@@ -17,12 +17,16 @@ export const getAllToDoItems = async ({ commit }) => {
 
 export const createToDoItem = async ({ commit }, toDoItemName) => {
 
-    alert(`actions.js => createToDoItem => toDoItemName: ${toDoItemName}`)
+    console.log(`actions.js => createToDoItem => toDoItemName: ${toDoItemName}`)
+
     const body = { name: toDoItemName }
 
     const { data, status } = await toDoApi.post('/TodoItems', body)
 
-    commit('addToDoItem', data)
+    if (status === 201) {
+        
+        commit('addToDoItem', data)
+    }
 }
 
 export const deleteToDoItem = async ({ commit }, todoItemId) => {
