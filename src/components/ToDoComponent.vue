@@ -3,9 +3,9 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="40" />
-        <!-- <h1>Hola desde ToDo Component</h1> -->
-        <!-- <h3>{{ $store.state.myName }}</h3>
-        <h3>{{ $store.getters.getFullName }}</h3>
+        <h1>Hola desde ToDo Component</h1>
+        <h3>{{ $store.state.toDoModule.myName }}</h3>
+        <!-- <h3>{{ $store.getters.getFullName }}</h3>
         <h3>{{ $store.state.responseApiBackend[0].name }}</h3>-->
 
         <v-form ref="form" lazy-validation>
@@ -45,7 +45,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="toDoItem in $store.state.responseApiBackend" :key="toDoItem.id">
+              <tr v-for="toDoItem in $store.state.toDoModule.responseApiBackend" :key="toDoItem.id">
                 <td>{{ toDoItem.id }}</td>
                 <td>{{ toDoItem.name }}</td>
 
