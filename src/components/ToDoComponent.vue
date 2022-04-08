@@ -3,8 +3,8 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="40" />
-        <h1>Hola desde ToDo Component</h1>
-        <h3>{{ $store.state.toDoModule.myName }}</h3>
+        <h1>ToDo List</h1>
+        <!-- <h3>{{ $store.state.toDoModule.myName }}</h3> -->
         <!-- <h3>{{ $store.getters.getFullName }}</h3>
         <h3>{{ $store.state.responseApiBackend[0].name }}</h3>-->
 
@@ -99,7 +99,6 @@ import { mapActions } from 'vuex'
 export default {
   data: () => ({
     toDoItemName: ''
-
   }),
   methods: {
     addToDoItem(toDoItemName) {
