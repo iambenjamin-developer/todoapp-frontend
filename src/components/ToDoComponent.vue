@@ -9,6 +9,29 @@
         <h3>{{ $store.state.responseApiBackend[0].name }}</h3>
       </v-col>
     </v-row>
+
+    <v-row class="text-center">
+      <v-col cols="12">
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">Id</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">isCompleted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in $store.state.responseApiBackend" :key="item.id">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.isCompleted }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

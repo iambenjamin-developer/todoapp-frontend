@@ -23,6 +23,11 @@ export default new Vuex.Store({
         name: "tarea 2030",
         isCompleted: true
       },
+      {
+        id: 2055,
+        name: "tarea 2055",
+        isCompleted: false
+      },
     ]
   },
   getters: {
