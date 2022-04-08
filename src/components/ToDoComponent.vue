@@ -94,6 +94,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data: () => ({
     toDoItemName: ''
@@ -123,8 +125,13 @@ export default {
       alert(toDoItemId)
       // TodoItemService.markToDoItemAsDone(toDoItemId);
       // refreshTable();
-    }
+    },
+    ...mapActions('toDoModule', ['loadToDoList'])
   },
+  created() {
+
+    this.loadToDoList()
+  }
 
 }
 </script>
