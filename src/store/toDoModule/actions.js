@@ -4,7 +4,7 @@
 
 import toDoApi from '@/api/toDoApi'
 
-export const loadToDoList = async ({ commit }) => {
+export const getAllToDoItems = async ({ commit }) => {
     const { data } = await toDoApi.get('/TodoItems')
 
     console.log(data)

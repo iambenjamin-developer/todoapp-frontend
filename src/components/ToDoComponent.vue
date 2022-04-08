@@ -126,11 +126,11 @@ export default {
       // TodoItemService.markToDoItemAsDone(toDoItemId);
       // refreshTable();
     },
-    ...mapActions('toDoModule', ['loadToDoList'])
+    ...mapActions('toDoModule', ['getAllToDoItems'])
   },
   created() {
 
-    this.loadToDoList()
+    this.getAllToDoItems()
   }
 
 }
