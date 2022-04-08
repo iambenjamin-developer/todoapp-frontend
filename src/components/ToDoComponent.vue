@@ -105,6 +105,7 @@ export default {
     addToDoItem(toDoItemName) {
 
       this.createToDoItem(toDoItemName)
+      this.getAllToDoItems()
 
       // TodoItemService.addToDoItem(this.toDoItemName);
       // refreshTable();
@@ -113,6 +114,7 @@ export default {
 
       // alert(todoItemId)
       this.deleteToDoItem(todoItemId)
+      this.getAllToDoItems()
       // TodoItemService.deleteToDoItemById(todoItemId);
       // refreshTable();
     },

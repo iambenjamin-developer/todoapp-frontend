@@ -2,18 +2,18 @@
 
 // }
 
-export const setToDoList = (state, toDoList) => {
+export const setToDoList = (state, data) => {
 
-    state.toDoList = [...state.toDoList, ...toDoList]
+    state.toDoList = data
     state.isLoading = false
 }
 
-export const addToDoItem = (state, toDoItemName ) => {
-    // state -> entries  -> la nueva entrada debe de ser la primera
-    state.entries = [ toDoItemName, ...state.entries  ]
+export const addToDoItem = (state, toDoItem) => {
+
+    state.toDoList = [...state.toDoList, toDoItem]
 }
 
-export const deleteToDoItem = (state, todoItemId ) => {
+export const deleteToDoItem = (state, data) => {
     // state -> entries  -> la nueva entrada debe de ser la primera
-    state.entries = [ todoItemId, ...state.entries  ]
+    state.entries = [data, ...state.entries]
 }
