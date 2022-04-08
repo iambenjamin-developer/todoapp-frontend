@@ -2,25 +2,16 @@ export default () => ({
 
     myName: 'Benjamin',
     myLastName: 'Correa',
+    isLoading: true,
     toDoList: [
         {
             id: 2001,
-            name: "tarea 2001",
+            name: "tarea 2001 memoria interna",
             isCompleted: true
         },
         {
             id: 2007,
-            name: "tarea 2007",
-            isCompleted: false
-        },
-        {
-            id: 2030,
-            name: "tarea 2030",
-            isCompleted: true
-        },
-        {
-            id: 2055,
-            name: "tarea 2055",
+            name: "tarea 2007 memoria interna",
             isCompleted: false
         },
     ]
