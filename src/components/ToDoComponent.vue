@@ -12,6 +12,7 @@
           <v-text-field
             @keydown.enter.prevent="addToDoItem(toDoItemName)"
             v-model="toDoItemName"
+            :rules="toDoItemNameRules"
             label="To Do Item"
             required
           ></v-text-field>
@@ -98,29 +99,37 @@ import { mapActions } from 'vuex'
 
 export default {
   data: () => ({
-    toDoItemName: ''
+    toDoItemName: '',
+    toDoItemNameRules: [
+      v => !!v || 'To Do Item is required',
+      v => (v && v.length >= 3) || 'To Do Item must be at least 3 characters in length',
+    ],
   }),
   methods: {
     addToDoItem(toDoItemName) {
 
       this.createToDoItem(toDoItemName)
       this.getAllToDoItems()
-      this.toDoItemName = ''
+      // this.toDoItemName = ''
+      this.$refs.form.reset()
     },
     deleteToDoItemById(todoItemId) {
 
       this.deleteToDoItem(todoItemId)
       this.getAllToDoItems()
+      this.$refs.form.reset()
     },
     markToDoItemAsIncompleted(todoItemId) {
 
       this.markToDoItemAsIncompleted(todoItemId)
       this.getAllToDoItems()
+      this.$refs.form.reset()
     },
     markToDoItemAsDone(todoItemId) {
 
       this.markToDoItemAsDone(todoItemId)
       this.getAllToDoItems()
+      this.$refs.form.reset()
     },
     ...mapActions('toDoModule', ['getAllToDoItems']),
     ...mapActions('toDoModule', ['createToDoItem']),
