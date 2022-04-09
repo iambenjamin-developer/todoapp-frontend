@@ -10,7 +10,7 @@
 
         <v-form ref="form" lazy-validation>
           <v-text-field
-            @keydown.enter="addToDoItem(toDoItemName)"
+            @keydown.enter.prevent="addToDoItem(toDoItemName)"
             v-model="toDoItemName"
             label="To Do Item"
             required
@@ -105,6 +105,7 @@ export default {
 
       this.createToDoItem(toDoItemName)
       this.getAllToDoItems()
+      this.toDoItemName = ''
     },
     deleteToDoItemById(todoItemId) {
 
