@@ -1,26 +1,3 @@
-# todoapp-frontend
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Dockerizar app 
-Agregar el siguiente Dockerfile:
-```
 FROM node:16.14-alpine
 
 # instalar un simple servidor http para servir nuestro contenido estático
@@ -43,14 +20,3 @@ RUN npm run build
 
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
-```
-### Construir imagen de la app
-
-```
-docker build -t vue2-todo .
-```
-
-### Correr imagen creada y exponerla en el puerto 8080
-```
-docker run -dp 8080:8080 vue2-todo
-```
