@@ -47,10 +47,10 @@ CMD [ "http-server", "dist" ]
 ### Construir imagen de la app
 
 ```
-docker build -t vue2-todo .
+docker build -t todo-app-frontend .
 ```
 
 ### Correr imagen creada y exponerla en el puerto 8080
 ```
-docker run -dp 8080:8080 vue2-todo
+docker run -d -p 8080:8080 todo-app-frontend
 ```
