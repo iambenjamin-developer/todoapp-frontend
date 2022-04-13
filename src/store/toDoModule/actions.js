@@ -2,7 +2,6 @@
 
 // }
 
-import toDoApi from '@/api/toDoApi'
 import ToDoItemService from '@/api/ToDoItemService'
 
 export const getAllToDoItems = async ({ commit }) => {
@@ -47,17 +46,11 @@ export const markToDoItemAsDone = async ({ commit }, toDoItemId) => {
 
 export const markToDoItemAsIncompleted = async ({ commit }, toDoItemId) => {
 
-    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${toDoItemId}`)
+    const result = await ToDoItemService.markToDoItemAsIncompleted(toDoItemId);
 
-    let body = {
-        markAsCompleted: false
-    }
+    if (result !== null) {
 
-    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body)
-
-    if (status === 204) {
-
-        commit('markToDoItemAsIncompleted', toDoItemId)
+        commit('markToDoItemAsIncompleted', result);
     }
 }
 

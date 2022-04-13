@@ -88,4 +88,26 @@ export default class ToDoItemService {
       return null;
     }
   }
+
+
+  static async markToDoItemAsIncompleted(toDoItemId) {
+
+    const body = { markAsCompleted: false }
+
+    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body);
+
+    console.log(`TodoItemService.markToDoItemAsIncompleted => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
+
+    if (status === 204) {
+
+      return toDoItemId;
+
+    } else {
+
+      return null;
+    }
+  }
+
+
+
 }
