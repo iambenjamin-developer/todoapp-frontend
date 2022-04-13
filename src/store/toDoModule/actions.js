@@ -6,16 +6,15 @@ import toDoApi from '@/api/toDoApi'
 import ToDoItemService from '@/api/ToDoItemService'
 export const getAllToDoItems = async ({ commit }) => {
 
-    const _toDoItemService = new ToDoItemService();
-    const result = await _toDoItemService.getAllTodoItems()
+    const result = await ToDoItemService.getAllTodoItems()
+    
     commit('setToDoList', result)
 }
 
 
 export const createToDoItem = async ({ commit }, toDoItemName) => {
 
-    const _toDoItemService = new ToDoItemService();
-    const result = await _toDoItemService.createToDoItem(toDoItemName);
+    const result = await ToDoItemService.createToDoItem(toDoItemName);
 
     if (result !== null) {
 

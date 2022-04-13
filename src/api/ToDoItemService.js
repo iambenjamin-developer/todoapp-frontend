@@ -6,7 +6,7 @@ const toDoApi = axios.create({
 
 export default class ToDoItemService {
 
-  async getAllTodoItems() {
+  static async getAllTodoItems() {
 
     const { data, status } = await toDoApi.get('/TodoItems');
 
@@ -16,7 +16,7 @@ export default class ToDoItemService {
 
   }
 
-  async createToDoItem(toDoItemName) {
+  static async createToDoItem(toDoItemName) {
 
     const body = { name: toDoItemName }
 
