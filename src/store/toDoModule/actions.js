@@ -2,7 +2,7 @@
 
 // }
 
-import ToDoItemService from '@/api/ToDoItemService'
+import ToDoItemService from '@/services/ToDoItemService'
 
 export const getAllToDoItems = async ({ commit }) => {
 
