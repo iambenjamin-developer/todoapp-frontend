@@ -10,9 +10,27 @@ export default class ToDoItemService {
 
     const { data, status } = await toDoApi.get('/TodoItems');
 
-    console.log(`TodoItemService.getAllTodoItems => Status Code: ${status} - Result => ${JSON.stringify(data)}`);
+    console.log(`TodoItemService.getAllTodoItems => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
 
     return data;
 
+  }
+
+  async createToDoItem(toDoItemName) {
+
+    const body = { name: toDoItemName }
+
+    const { data, status } = await toDoApi.post('/TodoItems', body)
+
+    console.log(`TodoItemService.createToDoItem => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
+
+    if (status === 201) {
+
+      return data;
+
+    } else {
+
+      return null;
+    }
   }
 }

@@ -7,22 +7,19 @@ import ToDoItemService from '@/api/ToDoItemService'
 export const getAllToDoItems = async ({ commit }) => {
 
     const _toDoItemService = new ToDoItemService();
-    const result =  await _toDoItemService.getAllTodoItems()
+    const result = await _toDoItemService.getAllTodoItems()
     commit('setToDoList', result)
 }
 
 
 export const createToDoItem = async ({ commit }, toDoItemName) => {
 
-    console.log(`actions.js => createToDoItem => toDoItemName: ${toDoItemName}`)
+    const _toDoItemService = new ToDoItemService();
+    const result = await _toDoItemService.createToDoItem(toDoItemName);
 
-    const body = { name: toDoItemName }
+    if (result !== null) {
 
-    const { data, status } = await toDoApi.post('/TodoItems', body)
-
-    if (status === 201) {
-
-        commit('addToDoItem', data)
+        commit('addToDoItem', result)
     }
 }
 
