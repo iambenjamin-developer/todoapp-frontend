@@ -33,4 +33,21 @@ export default class ToDoItemService {
       return null;
     }
   }
+
+
+  static async deleteToDoItem(toDoItemId) {
+
+    const { data, status } = await toDoApi.delete(`/TodoItems/${ toDoItemId }`)
+
+    console.log(`TodoItemService.deleteToDoItem => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
+
+    if (status === 204) {
+
+      return toDoItemId;
+
+    } else {
+
+      return null;
+    }
+  }
 }

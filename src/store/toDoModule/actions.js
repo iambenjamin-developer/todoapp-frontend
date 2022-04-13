@@ -7,7 +7,7 @@ import ToDoItemService from '@/api/ToDoItemService'
 export const getAllToDoItems = async ({ commit }) => {
 
     const result = await ToDoItemService.getAllTodoItems()
-    
+
     commit('setToDoList', result)
 }
 
@@ -22,15 +22,13 @@ export const createToDoItem = async ({ commit }, toDoItemName) => {
     }
 }
 
-export const deleteToDoItem = async ({ commit }, todoItemId) => {
+export const deleteToDoItem = async ({ commit }, toDoItemId) => {
 
-    console.log(`actions.js => deleteToDoItem => todoItemId: ${todoItemId}`)
+    const result = await ToDoItemService.deleteToDoItem(toDoItemId);
 
-    const { data, status } = await toDoApi.delete(`/TodoItems/${todoItemId}`)
+    if (result !== null) {
 
-    if (status === 204) {
-
-        commit('deleteToDoItem', todoItemId)
+        commit('deleteToDoItem', result)
     }
 }
 
