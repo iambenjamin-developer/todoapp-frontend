@@ -3,15 +3,12 @@
 // }
 
 import toDoApi from '@/api/toDoApi'
-
+import ToDoItemService from '@/api/ToDoItemService'
 export const getAllToDoItems = async ({ commit }) => {
-    const { data, status } = await toDoApi.get('/TodoItems')
 
-    console.log('actions.js => getAllToDoItems')
-    console.log('Status code:' + status)
-    console.log(data)
-
-    commit('setToDoList', data)
+    const _toDoItemService = new ToDoItemService();
+    const result =  await _toDoItemService.getAllTodoItems()
+    commit('setToDoList', result)
 }
 
 
