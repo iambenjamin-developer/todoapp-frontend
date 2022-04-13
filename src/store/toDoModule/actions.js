@@ -32,35 +32,38 @@ export const deleteToDoItem = async ({ commit }, toDoItemId) => {
     }
 }
 
-export const markToDoItemAsIncompleted = async ({ commit }, todoItemId) => {
 
-    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${todoItemId}`)
+export const markToDoItemAsDone = async ({ commit }, toDoItemId) => {
 
-    let body = {
-        markAsCompleted: false
-    }
-
-    const { data, status } = await toDoApi.put(`/TodoItems/${todoItemId}`, body)
-
-    if (status === 204) {
-
-        commit('markToDoItemAsIncompleted', todoItemId)
-    }
-}
-
-
-export const markToDoItemAsDone = async ({ commit }, todoItemId) => {
-
-    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${todoItemId}`)
+    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${toDoItemId}`)
 
     let body = {
         markAsCompleted: true
     }
 
-    const { data, status } = await toDoApi.put(`/TodoItems/${todoItemId}`, body)
+    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body)
 
     if (status === 204) {
 
-        commit('markToDoItemAsDone', todoItemId)
+        commit('markToDoItemAsDone', toDoItemId)
     }
 }
+
+
+export const markToDoItemAsIncompleted = async ({ commit }, toDoItemId) => {
+
+    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${toDoItemId}`)
+
+    let body = {
+        markAsCompleted: false
+    }
+
+    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body)
+
+    if (status === 204) {
+
+        commit('markToDoItemAsIncompleted', toDoItemId)
+    }
+}
+
+
