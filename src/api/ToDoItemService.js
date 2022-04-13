@@ -50,4 +50,42 @@ export default class ToDoItemService {
       return null;
     }
   }
+
+
+  static async createToDoItem(toDoItemName) {
+
+    const body = { name: toDoItemName }
+
+    const { data, status } = await toDoApi.post('/TodoItems', body)
+
+    console.log(`TodoItemService.createToDoItem => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
+
+    if (status === 201) {
+
+      return data;
+
+    } else {
+
+      return null;
+    }
+  }
+
+
+  static async markToDoItemAsDone(toDoItemId) {
+
+    const body = { markAsCompleted: true }
+
+    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body);
+
+    console.log(`TodoItemService.markToDoItemAsDone => Status Code: ${ status } - Result => ${ JSON.stringify(data) }`);
+
+    if (status === 204) {
+
+      return toDoItemId;
+
+    } else {
+
+      return null;
+    }
+  }
 }

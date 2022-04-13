@@ -4,11 +4,12 @@
 
 import toDoApi from '@/api/toDoApi'
 import ToDoItemService from '@/api/ToDoItemService'
+
 export const getAllToDoItems = async ({ commit }) => {
 
-    const result = await ToDoItemService.getAllTodoItems()
+    const result = await ToDoItemService.getAllTodoItems();
 
-    commit('setToDoList', result)
+    commit('setToDoList', result);
 }
 
 
@@ -18,7 +19,7 @@ export const createToDoItem = async ({ commit }, toDoItemName) => {
 
     if (result !== null) {
 
-        commit('addToDoItem', result)
+        commit('addToDoItem', result);
     }
 }
 
@@ -28,24 +29,18 @@ export const deleteToDoItem = async ({ commit }, toDoItemId) => {
 
     if (result !== null) {
 
-        commit('deleteToDoItem', result)
+        commit('deleteToDoItem', result);
     }
 }
 
 
 export const markToDoItemAsDone = async ({ commit }, toDoItemId) => {
 
-    console.log(`actions.js => markToDoItemAsIncompleted => todoItemId: ${toDoItemId}`)
+    const result = await ToDoItemService.markToDoItemAsDone(toDoItemId);
 
-    let body = {
-        markAsCompleted: true
-    }
+    if (result !== null) {
 
-    const { data, status } = await toDoApi.put(`/TodoItems/${toDoItemId}`, body)
-
-    if (status === 204) {
-
-        commit('markToDoItemAsDone', toDoItemId)
+        commit('markToDoItemAsDone', result);
     }
 }
 
