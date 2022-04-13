@@ -27,7 +27,7 @@ export const markToDoItemAsIncompleted = (state, todoItemId) => {
 
 export const markToDoItemAsDone = (state, todoItemId) => {
 
-    // //Find index of specific object using findIndex method. 
+    //Find index of specific object using findIndex method. 
     let objIndex = state.toDoList.findIndex((obj => obj.id == todoItemId));
     state.toDoList[objIndex].isCompleted = true;
 }
